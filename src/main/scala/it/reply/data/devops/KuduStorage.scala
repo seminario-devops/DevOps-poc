@@ -1,9 +1,13 @@
 package it.reply.data.devops
 
 import it.reply.data.pasquali.Storage
-import org.apache.spark.sql.Row
+import org.apache.spark.sql.functions.udf
 
 case class KuduStorage(storage : Storage) {
+
+  val UDFtoLong = udf { u: String => u.toLong }
+  val UDFtoDouble = udf { u: String => u.toDouble }
+
 
   def storeRatingsToKudu(filename : String) : Unit = {
 
@@ -16,10 +20,16 @@ case class KuduStorage(storage : Storage) {
       .option("header", "true")
       .option("mode", "DROPMALFORMED")
       .load(filename)
-      .map{ case Row(userID, movieID, rating, time) =>
-        Row(userID.asInstanceOf[Long],
-          movieID.asInstanceOf[Long],
-          rating.asInstanceOf[Double], time)}.toDF("userid", "movieid", "rating", "time")
+      .withColumn("u", UDFtoLong('userid))
+      .withColumn("m", UDFtoLong('movieid))
+      .withColumn("r", UDFtoLong('rating))
+      .drop("userid")
+      .drop("movieid")
+      .drop("rating")
+      .select('u, 'm, 'r, 'time)
+      .toDF("userid", "movieid", "rating", "time")
+
+    table.printSchema()
 
     storage.upsertKuduRows(table, "default.kudu_ratings")
   }
