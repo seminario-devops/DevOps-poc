@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6245f926-93a0-4f91-9768-8c0b5ecb12db" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/ratings.csv" afterPath="$PROJECT_DIR$/data/ratings.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala" afterPath="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,8 +43,8 @@
       <file leaf-file-name="OfflineTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/OfflineTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="18" />
+            <state relative-caret-position="458">
+              <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -54,11 +55,9 @@
       <file leaf-file-name="BinaryRec.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/BinaryRec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="24" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-108">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -78,24 +77,10 @@
       <file leaf-file-name="KuduStorage.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BinaryALSValidator.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/BinaryALSValidator.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="963">
-              <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
+            <state relative-caret-position="493">
+              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="21" />
               <folding>
-                <element signature="e#1364#1523#0" expanded="false" />
-                <element signature="e#1527#1575#0" expanded="false" />
-                <element signature="e#1579#1741#0" expanded="false" />
-                <element signature="e#1745#1796#0" expanded="false" />
-                <element signature="e#1800#1848#0" expanded="false" />
+                <element signature="e#30#67#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,6 +112,7 @@
         <option value="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/BinaryRec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/BinaryRec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/RatingsKuduLoader.scala" />
+        <option value="$PROJECT_DIR$/data/ratings.csv" />
         <option value="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala" />
       </list>
     </option>
@@ -369,12 +355,12 @@
       <option name="presentableId" value="Default" />
       <updated>1518715835894</updated>
       <workItem from="1518715838488" duration="282000" />
-      <workItem from="1518716129340" duration="3821000" />
+      <workItem from="1518716129340" duration="4396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4103000" />
+    <option name="totallyTimeSpent" value="4678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -470,17 +456,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/BinaryRec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/ratings.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/BinaryALSValidator.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="963">
+        <state relative-caret-position="1144">
           <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
           <folding>
             <element signature="e#1364#1523#0" expanded="false" />
@@ -492,31 +486,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/BinaryRec.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/OfflineTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-          <folding />
+        <state relative-caret-position="458">
+          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/BinaryRec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="24" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/OfflineTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-108">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -532,9 +516,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="493">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <element signature="e#30#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
