@@ -5,12 +5,21 @@ object RatingsKuduLoader {
 
   def main(args: Array[String]): Unit = {
 
-    if(args.length != 2)
-      println("RatingsKuduLoader kuduaddr kuduport")
+    var addr = ""
+    var port = ""
+
+    if(args.length != 2){
+      addr = "clouder"
+      port = "7051"
+    }
+    else{
+      addr = args(0)
+      port = args(1)
+    }
 
     val storage = Storage()
       .init("local", "kudu", false)
-      .initKudu(args(0), args(1), "impala::")
+      .initKudu(addr, port, "impala::")
 
     KuduStorage(storage).storeRatingsToKudu("data/ratings.csv")
   }
