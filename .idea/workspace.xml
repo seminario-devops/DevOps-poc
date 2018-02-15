@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6245f926-93a0-4f91-9768-8c0b5ecb12db" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/RatingsKuduLoader.scala" afterPath="$PROJECT_DIR$/src/main/scala/RatingsKuduLoader.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala" afterPath="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,8 +42,8 @@
       <file leaf-file-name="OfflineTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/OfflineTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="47" />
+            <state relative-caret-position="80">
+              <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="18" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -63,14 +63,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RatingsKuduLoader.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RatingsKuduLoader.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/RatingsKuduLoader.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="621">
+              <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KuduStorage.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="52">
+              <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,7 +117,6 @@
         <option value="$PROJECT_DIR$/project/build.properties" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/lib/scriptFile.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/MovieRecommender.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/BinaryALS.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/ModelValidator.scala" />
@@ -118,6 +127,7 @@
         <option value="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/BinaryRec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/BinaryRec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/RatingsKuduLoader.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala" />
       </list>
     </option>
   </component>
@@ -359,12 +369,12 @@
       <option name="presentableId" value="Default" />
       <updated>1518715835894</updated>
       <workItem from="1518715838488" duration="282000" />
-      <workItem from="1518716129340" duration="3570000" />
+      <workItem from="1518716129340" duration="3821000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3852000" />
+    <option name="totallyTimeSpent" value="4103000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -445,16 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#30#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/BinaryALS.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -500,16 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/OfflineTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/BinaryRec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -520,13 +510,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/OfflineTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/RatingsKuduLoader.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="621">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/it/reply/data/devops/KuduStorage.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
