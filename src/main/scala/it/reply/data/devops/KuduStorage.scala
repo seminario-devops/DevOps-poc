@@ -22,7 +22,7 @@ case class KuduStorage(storage : Storage) {
       .load(filename)
       .withColumn("u", UDFtoLong('userid))
       .withColumn("m", UDFtoLong('movieid))
-      .withColumn("r", UDFtoLong('rating))
+      .withColumn("r", UDFtoDouble('rating))
       .drop("userid")
       .drop("movieid")
       .drop("rating")
