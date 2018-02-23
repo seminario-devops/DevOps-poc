@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo "${env.BRANCH_NAME}"
         echo 'Put here provisioning stuff'
-        echo 'USE Ansible :)'
+        echo 'Ansible ??'
       }
     }
     stage('Test the System') {
@@ -18,11 +18,17 @@ pipeline {
     stage('Unit Tests') {
       steps {
         echo 'Tests'
+        sh 'sbt clean test'
+        archiveArtifacts 'target/test-reports/*.xml'
+        junit(testResults: 'target/test-reports/DevOpsPOCSpec.xml',
+                allowEmptyResults: true)
       }
     }
     stage('Build') {
       steps {
         echo 'Build'
+        sh 'sbt clean compile package assembly'
+        archiveArtifacts 'target/scala-*/*.jar'
       }
     }
     stage('Notify') {
@@ -30,7 +36,9 @@ pipeline {
         script {
           if (env.BRANCH_NAME != "master") {
             sh "git checkout ${env.BRANCH_NAME}"
-            sh 'source /etc/profile.d/exports.sh && /opt/hub-linux-386-2.3.0-pre10/bin/hub pull-request -m "$(git log -1 --pretty=%B)"'
+            sh 'source /etc/profile.d/exports.sh &&' +
+                    ' /opt/hub-linux-386-2.3.0-pre10/bin/hub pull-request' +
+                    ' -m "$(git log -1 --pretty=%B)"'
             notifyMessage = "Pull Request Sent"
           }
           else {
@@ -52,11 +60,10 @@ pipeline {
         commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
         message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
         color = '#00CC00'
-        
-        slackSend(message: message, baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/', color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
+        slackSend(message: message,
+                baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/',
+                color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
       }
-      
-      
     }
     
     failure {
@@ -69,11 +76,10 @@ pipeline {
         commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
         message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
         color = '#990000'
+        slackSend(message: message,
+                baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/',
+                color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
       }
-      
-      echo "Message ${message}"
-      slackSend(message: message, baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/', color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
-      
     }
     
   }
