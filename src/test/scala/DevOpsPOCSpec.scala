@@ -39,18 +39,15 @@ class DevOpsPOCSpec extends FlatSpec
     assert(ratings != null)
     ratings.printSchema()
   }
-
   it must "contains at least 10K elements" in {
     assert(ratings.count() >= 10000)
   }
-
   it must "be transformed, removing timestamp column" in {
     ratings = ratings
       .drop("time")
 
     assert(!ratings.columns.contains("time"))
   }
-
   it must "be transformed in a RDD of Spark MLlib Ratings" in {
     ratingsRDD = ratings.rdd.map { rate =>
       Rating(rate(0).toString.toInt, rate(1).toString.toInt, rate(2).toString.toDouble)
@@ -75,7 +72,6 @@ class DevOpsPOCSpec extends FlatSpec
   "Binary ALS recommender" must "be initialized" in {
     assert(movieRec != null)
   }
-
   it must "train a recommendation model" in {
 
     movieRec.trainModelBinary(train, 10, 10, 0.1)
@@ -83,7 +79,7 @@ class DevOpsPOCSpec extends FlatSpec
 
   }
 
-  "The model accuracy" must "be good" in {
+  "The model" must "have a good accuracy" in {
 
     val validator = BinaryALSValidator(movieRec.model).init(test)
 
@@ -92,6 +88,8 @@ class DevOpsPOCSpec extends FlatSpec
     println(s"Accuracy is ${acc}")
     assert(acc >= 0.7)
   }
+  it must "have a good precision" in pending
+  it must "have a good recall" in pending
 
   override def afterAll(): Unit = {
     super.afterAll()
