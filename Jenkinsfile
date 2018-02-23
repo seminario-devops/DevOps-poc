@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                echo 'Some Test'
+                echo 'Tests'
                 //sh 'sbt clean test'
                 //archiveArtifacts 'target/test-reports/*.xml'
                 //junit(testResults: 'target/test-reports/DevOpsPOCSpec.xml', allowEmptyResults: true)
@@ -26,6 +26,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                echo 'Build'
                 //sh 'sbt clean compile package assembly'
                 //archiveArtifacts 'target/scala-*/*.jar'
             }
