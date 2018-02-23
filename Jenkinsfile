@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo "${env.BRANCH_NAME}"
         echo 'Put here provisioning stuff'
-        echo 'USE Ansible :)'
+        echo 'Ansible ??'
       }
     }
     stage('Test the System') {
