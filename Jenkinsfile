@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     if (env.BRANCH_NAME != "master") {
-                        sh 'git pull-request -m "$(git log -1 --pretty=%B)"'
+                        sh 'hub pull-request -m "$(git log -1 --pretty=%B)"'
                         notifyMessage = "Pull Request Sent"
                     }
                     else {
