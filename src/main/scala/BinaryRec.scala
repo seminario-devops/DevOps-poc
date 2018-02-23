@@ -1,4 +1,4 @@
-import OfflineTest.mr
+import OfflineBinRec.mr
 import it.reply.data.devops.{BinaryALS, BinaryALSValidator}
 import it.reply.data.pasquali.Storage
 import org.apache.spark.mllib.recommendation.Rating

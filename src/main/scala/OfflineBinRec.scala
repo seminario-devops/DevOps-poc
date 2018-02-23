@@ -1,13 +1,7 @@
 import it.reply.data.devops.{BinaryALS, BinaryALSValidator}
-import org.apache.spark.SparkContext
-import org.apache.spark.mllib.clustering.KMeans
-import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.recommendation.Rating
-import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.udf
 
-object OfflineTest {
+object OfflineBinRec {
 
   var mr : BinaryALS = null
 
