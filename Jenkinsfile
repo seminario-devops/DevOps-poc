@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test the System') {
             steps {
-                sh 'SBT manage dependencies, just test if is reachable'
+                echo 'SBT manage dependencies, just test if is reachable'
                 sh 'java -version'
                 sh 'sbt about'
             }
