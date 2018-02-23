@@ -29,7 +29,7 @@ pipeline {
       steps {
         script {
           if (env.BRANCH_NAME != "master") {
-            sh "git checkout env.BRANCH_NAME"
+            sh "git checkout ${env.BRANCH_NAME}"
             sh '/opt/hub-linux-386-2.3.0-pre10/bin/hub pull-request -m "$(git log -1 --pretty=%B)"'
             notifyMessage = "Pull Request Sent"
           }
