@@ -32,11 +32,11 @@ pipeline {
     }
     post {
         success {
+            script {
+                if (env.BRANCH_NAME != "master") {
+                    sh 'git pull-request -m "$(git log -1 --pretty=%B)"'
 
-            if (env.BRANCH_NAME != "master"){
-                sh 'git pull-request -m "$(git log -1 --pretty=%B)"'
 
-                script {
                     header = "Job <${env.JOB_URL}|${env.JOB_NAME}> <${env.JOB_DISPLAY_URL}|(Blue)>"
                     header += " build <${env.BUILD_URL}|${env.BUILD_DISPLAY_NAME}> <${env.RUN_DISPLAY_URL}|(Blue)>:"
                     message = "${header}\n :smiley: All test passed :smiley: Pull Request created on GitHub"
@@ -45,11 +45,9 @@ pipeline {
                     commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
                     message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
                     color = '#00CC00'
-                }
-                slackSend(message: message, baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/', color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
-            }
-            else {
-                script {
+
+                    slackSend(message: message, baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/', color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
+                } else {
                     header = "Job <${env.JOB_URL}|${env.JOB_NAME}> <${env.JOB_DISPLAY_URL}|(Blue)>"
                     header += " build <${env.BUILD_URL}|${env.BUILD_DISPLAY_NAME}> <${env.RUN_DISPLAY_URL}|(Blue)>:"
                     message = "${header}\n :smiley: All test passed :smiley: The Master Branch is Ready to Deploy"
@@ -58,8 +56,9 @@ pipeline {
                     commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
                     message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
                     color = '#00CC00'
+
+                    slackSend(message: message, baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/', color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
                 }
-                slackSend(message: message, baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/', color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
             }
 
 
