@@ -1,4 +1,5 @@
 failMessage = ""
+notifyMessage = ""
 pipeline {
     agent any
     stages {
@@ -31,39 +32,37 @@ pipeline {
                 //archiveArtifacts 'target/scala-*/*.jar'
             }
         }
-    }
-    post {
-        success {
+        stage('Notify') {
+
             script {
                 if (env.BRANCH_NAME != "master") {
                     sh 'git pull-request -m "$(git log -1 --pretty=%B)"'
-
-
-                    header = "Job <${env.JOB_URL}|${env.JOB_NAME}> <${env.JOB_DISPLAY_URL}|(Blue)>"
-                    header += " build <${env.BUILD_URL}|${env.BUILD_DISPLAY_NAME}> <${env.RUN_DISPLAY_URL}|(Blue)>:"
-                    message = "${header}\n :smiley: All test passed :smiley: Pull Request created on GitHub"
-
-                    author = sh(script: "git log -1 --pretty=%an", returnStdout: true).trim()
-                    commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
-                    message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
-                    color = '#00CC00'
-
-                    slackSend(message: message, baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/', color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
-                } else {
-                    header = "Job <${env.JOB_URL}|${env.JOB_NAME}> <${env.JOB_DISPLAY_URL}|(Blue)>"
-                    header += " build <${env.BUILD_URL}|${env.BUILD_DISPLAY_NAME}> <${env.RUN_DISPLAY_URL}|(Blue)>:"
-                    message = "${header}\n :smiley: All test passed :smiley: The Master Branch is Ready to Deploy"
-
-                    author = sh(script: "git log -1 --pretty=%an", returnStdout: true).trim()
-                    commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
-                    message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
-                    color = '#00CC00'
-
-                    slackSend(message: message, baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/', color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
+                    notifyMessage = "Pull Request Sent"
+                }
+                else {
+                    notifyMessage = "Master ready for production"
                 }
             }
 
 
+
+        }
+    }
+    post {
+        success {
+
+            script {
+                header = "Job <${env.JOB_URL}|${env.JOB_NAME}> <${env.JOB_DISPLAY_URL}|(Blue)>"
+                header += " build <${env.BUILD_URL}|${env.BUILD_DISPLAY_NAME}> <${env.RUN_DISPLAY_URL}|(Blue)>:"
+                message = "${header}\n :smiley: All test passed :smiley: $notifyMessage"
+
+                author = sh(script: "git log -1 --pretty=%an", returnStdout: true).trim()
+                commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+                message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
+                color = '#00CC00'
+
+                slackSend(message: message, baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/', color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
+            }
         }
 
         failure {
