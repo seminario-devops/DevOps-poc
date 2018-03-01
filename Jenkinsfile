@@ -61,8 +61,8 @@ pipeline {
         message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
         color = '#00CC00'
         slackSend(message: message,
-                baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/',
-                color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
+                baseUrl: 'https://devopshours.slack.com/services/hooks/jenkins-ci/',
+                color: color, token: 'HTH9g3mO83UmUKqPPtupjWQj')
       }
     }
     
@@ -77,8 +77,8 @@ pipeline {
         message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
         color = '#990000'
         slackSend(message: message,
-                baseUrl: 'https://devops-pasquali-cm.slack.com/services/hooks/jenkins-ci/',
-                color: color, token: 'ihoCVUPB7hqGz2xI1htD8x0F')
+                baseUrl: 'https://devopshours.slack.com/services/hooks/jenkins-ci/',
+                color: color, token: 'HTH9g3mO83UmUKqPPtupjWQj')
       }
     }
     
