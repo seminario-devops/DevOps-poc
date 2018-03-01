@@ -20,8 +20,7 @@ pipeline {
         echo 'Tests'
         sh 'sbt clean test'
         archiveArtifacts 'target/test-reports/*.xml'
-        junit(testResults: 'target/test-reports/DevOpsPOCSpec.xml',
-                allowEmptyResults: true)
+        junit(testResults: 'target/test-reports/DevOpsPOCSpec.xml', allowEmptyResults: true)
       }
     }
     stage('Build') {
@@ -37,8 +36,8 @@ pipeline {
           if (env.BRANCH_NAME != "master") {
             sh "git checkout ${env.BRANCH_NAME}"
             sh 'source /etc/profile.d/exports.sh &&' +
-                    ' /opt/hub-linux-386-2.3.0-pre10/bin/hub pull-request' +
-                    ' -m "$(git log -1 --pretty=%B)"'
+            ' /opt/hub-linux-386-2.3.0-pre10/bin/hub pull-request' +
+            ' -m "$(git log -1 --pretty=%B)"'
             notifyMessage = "Pull Request Sent"
           }
           else {
@@ -61,9 +60,11 @@ pipeline {
         message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
         color = '#00CC00'
         slackSend(message: message,
-                baseUrl: 'https://devopshours.slack.com/services/hooks/jenkins-ci/',
-                color: color, token: 'HTH9g3mO83UmUKqPPtupjWQj')
+        baseUrl: 'https://devopshours.slack.com/services/hooks/jenkins-ci/',
+        color: color, token: 'HTH9g3mO83UmUKqPPtupjWQj')
       }
+      
+      
     }
     
     failure {
@@ -74,12 +75,14 @@ pipeline {
         
         author = sh(script: "git log -1 --pretty=%an", returnStdout: true).trim()
         commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
-        message += " Commit by <@${author}> (${author}): ``` ${commitMessage} ``` "
+        message += " Commit  by <@${author}> (${author}): ``` ${commitMessage} ``` "
         color = '#990000'
         slackSend(message: message,
-                baseUrl: 'https://devopshours.slack.com/services/hooks/jenkins-ci/',
-                color: color, token: 'HTH9g3mO83UmUKqPPtupjWQj')
+        baseUrl: 'https://devopshours.slack.com/services/hooks/jenkins-ci/',
+        color: color, token: 'HTH9g3mO83UmUKqPPtupjWQj')
       }
+      
+      
     }
     
   }
